@@ -61,7 +61,7 @@ class FACE_OT_center(bpy.types.Operator):
             return {'FINISHED'}
         
         elif event.type in {'MIDDLEMOUSE', 'WHEELUPMOUSE', 
-'WHEELDOWNMOUSE'}:
+'WHEELDOWNMOUSE','TAB'}:
             # allow navigation
             return {'PASS_THROUGH'}
 
