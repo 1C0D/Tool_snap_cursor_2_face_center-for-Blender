@@ -41,7 +41,7 @@ def main(context, event):
 
 class FACE_OT_center(bpy.types.Operator):
     bl_idname = "view3d.face_center"
-    bl_label = "snap face center-sfc"     
+    bl_label = "snap cursor 2 face center-sfc"     
     
     @classmethod
     def poll(cls, context):
