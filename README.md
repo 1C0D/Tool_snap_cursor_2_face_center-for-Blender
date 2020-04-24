@@ -1,4 +1,4 @@
-# Snap_cursor_2_face_center
+# Snap_cursor_2_face_center for Blender
 snap cursor to face center in edit/object mode in Blender (for the moment it's only a script not an addon)
 
 -run the label (snap face center sfc...) from the console
