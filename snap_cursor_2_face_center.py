@@ -1,9 +1,5 @@
-                                                                                                            
 import bpy
 from bpy_extras import view3d_utils
-
-cursor_loc=bpy.context.scene.cursor.location.copy()
-cursor_rot=bpy.context.scene.cursor.rotation_euler.copy()
 
 def main(context, event):
     
@@ -56,19 +52,20 @@ class FACE_OT_center(bpy.types.Operator):
             return {'FINISHED'}
 
         elif event.type in {'RIGHTMOUSE', 'ESC'}:
-            bpy.context.scene.cursor.location=cursor_loc
-            bpy.context.scene.cursor.rotation_euler=cursor_rot
+            bpy.context.scene.cursor.location=self.cursor_loc
+            bpy.context.scene.cursor.rotation_euler=self.cursor_rot
             return {'FINISHED'}
         
-        elif event.type in {'MIDDLEMOUSE', 'WHEELUPMOUSE', 
-'WHEELDOWNMOUSE','TAB'}:
+        elif event.type in {'MIDDLEMOUSE', 'WHEELUPMOUSE', 'WHEELDOWNMOUSE','TAB'}:
             # allow navigation
             return {'PASS_THROUGH'}
 
         return {'RUNNING_MODAL'}
 
-    def invoke(self, context, event):
-                    
+    def invoke(self, context, event):    
+    
+        self.cursor_loc=bpy.context.scene.cursor.location.copy()
+        self.cursor_rot=bpy.context.scene.cursor.rotation_euler.copy()
         context.window_manager.modal_handler_add(self)
         return {'RUNNING_MODAL'}        
 
